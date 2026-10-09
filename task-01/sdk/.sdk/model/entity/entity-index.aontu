@@ -1,0 +1,11 @@
+# Entity Models
+
+@"./country.aontu"
+@"./group.aontu"
+@"./language.aontu"
+@"./public_holiday.aontu"
+@"./public_holidays_by_date.aontu"
+@"./school_holiday.aontu"
+@"./school_holidays_by_date.aontu"
+@"./statistic.aontu"
+@"./subdivision.aontu"

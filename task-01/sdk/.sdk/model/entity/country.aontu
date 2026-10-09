@@ -1,0 +1,90 @@
+# Entity: country
+
+main: kit: entity: country: {
+
+  alias: field: {}
+
+  fields: {
+    isoCode: {
+      h: "Iso Code"
+      n: "isoCode"
+      r: true
+      sh: "ISO 3166-1 country code"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Localized country names"
+      t: "`$ARRAY`"
+    }
+    officialLanguages: {
+      h: "Official Languages"
+      n: "officialLanguages"
+      r: true
+      sh: "Official ISO-639-1 language codes"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "country"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /Countries"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "language_iso_code"
+                or: "languageIsoCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Countries"
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "Countries"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

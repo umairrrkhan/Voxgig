@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "country": {
+      "COUNTRY00": {
+        "isoCode": "s1e",
+        "name": [],
+        "officialLanguages": []
+      },
+      "COUNTRY01": {
+        "isoCode": "s3c",
+        "name": [],
+        "officialLanguages": []
+      },
+      "COUNTRY02": {
+        "isoCode": "s5a",
+        "name": [],
+        "officialLanguages": []
+      }
+    }
+  },
+  "new": {
+    "country": {
+      "country_ref01": {
+        "isoCode": "s78",
+        "name": [],
+        "officialLanguages": []
+      }
+    }
+  },
+  "requests": {
+    "GET /Countries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

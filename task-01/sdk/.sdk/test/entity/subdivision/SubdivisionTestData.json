@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "subdivision": {
+      "SUBDIVISION00": {
+        "category": [],
+        "children": [],
+        "code": "s5c",
+        "comment": [],
+        "groups": [],
+        "isoCode": "s5f",
+        "name": [],
+        "officialLanguages": [],
+        "shortName": "s62"
+      },
+      "SUBDIVISION01": {
+        "category": [],
+        "children": [],
+        "code": "sb6",
+        "comment": [],
+        "groups": [],
+        "isoCode": "sb9",
+        "name": [],
+        "officialLanguages": [],
+        "shortName": "sbc"
+      },
+      "SUBDIVISION02": {
+        "category": [],
+        "children": [],
+        "code": "s110",
+        "comment": [],
+        "groups": [],
+        "isoCode": "s113",
+        "name": [],
+        "officialLanguages": [],
+        "shortName": "s116"
+      }
+    }
+  },
+  "new": {
+    "subdivision": {
+      "subdivision_ref01": {
+        "category": [],
+        "children": [],
+        "code": "s16a",
+        "comment": [],
+        "groups": [],
+        "isoCode": "s16d",
+        "name": [],
+        "officialLanguages": [],
+        "shortName": "s170"
+      }
+    }
+  },
+  "requests": {
+    "GET /Subdivisions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

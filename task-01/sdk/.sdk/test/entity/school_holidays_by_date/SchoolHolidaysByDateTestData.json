@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "school_holidays_by_date": {
+      "SCHOOL_HOLIDAYS_BY_DATE00": {
+        "comment": [],
+        "country": {},
+        "groups": [],
+        "id": "SCHOOL_HOLIDAYS_BY_DATE00",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s74",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s77",
+        "type": "s78"
+      },
+      "SCHOOL_HOLIDAYS_BY_DATE01": {
+        "comment": [],
+        "country": {},
+        "groups": [],
+        "id": "SCHOOL_HOLIDAYS_BY_DATE01",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "se2",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "se5",
+        "type": "se6"
+      },
+      "SCHOOL_HOLIDAYS_BY_DATE02": {
+        "comment": [],
+        "country": {},
+        "groups": [],
+        "id": "SCHOOL_HOLIDAYS_BY_DATE02",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s150",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s153",
+        "type": "s154"
+      }
+    }
+  },
+  "new": {
+    "school_holidays_by_date": {
+      "school_holidays_by_date_ref01": {
+        "comment": [],
+        "country": {},
+        "groups": [],
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s1be",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s1c1",
+        "type": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "GET /SchoolHolidaysByDate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "verifiedAt": "2026-10-09T11:28:45.393Z",
+  "node": "v24.21.0",
+  "workflow": "https://github.com/umairrrkhan/Voxgig/actions/runs/37923875229",
+  "sourceCommit": "5cdc1a14915bee1f9843525832aaceda6d5fcac0",
+  "generator": "@voxgig/create-sdkgen@0.30.7",
+  "upstreamSpecSha256": "5af1c4e33e6b9cd77eec094aa85ab68c067584006d945adda03c2d28caa17ac6",
+  "checks": [
+    "Voxgig generation",
+    "TypeScript compilation",
+    "generated offline tests",
+    "generator doctor",
+    "six live SDK direct calls"
+  ],
+  "liveChecks": 6
+}

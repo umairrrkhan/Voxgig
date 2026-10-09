@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "group": {
+      "GROUP00": {
+        "category": [],
+        "children": [],
+        "code": "s48",
+        "comment": [],
+        "name": [],
+        "shortName": "s4b",
+        "subdivisions": []
+      },
+      "GROUP01": {
+        "category": [],
+        "children": [],
+        "code": "s8e",
+        "comment": [],
+        "name": [],
+        "shortName": "s91",
+        "subdivisions": []
+      },
+      "GROUP02": {
+        "category": [],
+        "children": [],
+        "code": "sd4",
+        "comment": [],
+        "name": [],
+        "shortName": "sd7",
+        "subdivisions": []
+      }
+    }
+  },
+  "new": {
+    "group": {
+      "group_ref01": {
+        "category": [],
+        "children": [],
+        "code": "s11a",
+        "comment": [],
+        "name": [],
+        "shortName": "s11d",
+        "subdivisions": []
+      }
+    }
+  },
+  "requests": {
+    "GET /Groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

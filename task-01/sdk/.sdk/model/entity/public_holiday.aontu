@@ -1,0 +1,207 @@
+# Entity: public_holiday
+
+main: kit: entity: public_holiday: {
+
+  alias: field: {}
+
+  fields: {
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Additional localized comments"
+      t: "`$ARRAY`"
+    }
+    endDate: {
+      fo: "date"
+      h: "End Date"
+      n: "endDate"
+      r: true
+      sh: "End date of the holiday"
+      t: "`$STRING`"
+    }
+    groups: {
+      h: "Groups"
+      n: "groups"
+      r: false
+      sh: "List of group references"
+      t: "`$ARRAY`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique holiday id"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Localized names of the holiday"
+      t: "`$ARRAY`"
+    }
+    nationwide: {
+      h: "Nationwide"
+      n: "nationwide"
+      r: true
+      sh: "Is the holiday nationwide?"
+      t: "`$BOOLEAN`"
+    }
+    regionalScope: {
+      h: "Regional Scope"
+      n: "regionalScope"
+      r: false
+      ro: true
+      sh: "Regional scope of a holdiay"
+      t: "`$STRING`"
+    }
+    startDate: {
+      fo: "date"
+      h: "Start Date"
+      n: "startDate"
+      r: true
+      sh: "Start date of the holiday"
+      t: "`$STRING`"
+    }
+    subdivisions: {
+      h: "Subdivisions"
+      n: "subdivisions"
+      r: false
+      sh: "List of subdivision references"
+      t: "`$ARRAY`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "Additional holday tags"
+      t: "`$ARRAY`"
+    }
+    temporalScope: {
+      h: "Temporal Scope"
+      n: "temporalScope"
+      r: false
+      ro: true
+      sh: "Temporal scope of a holdiay"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "Type of holiday"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "public_holiday"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /PublicHolidays"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "country_iso_code"
+                or: "countryIsoCode"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE"
+                k: "query"
+                n: "language_iso_code"
+                or: "languageIsoCode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE-BE"
+                k: "query"
+                n: "subdivision_code"
+                or: "subdivisionCode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2023-01-01"
+                k: "query"
+                n: "valid_from"
+                or: "validFrom"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "2023-12-31"
+                k: "query"
+                n: "valid_to"
+                or: "validTo"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/PublicHolidays"
+          q: {
+            exist: [
+              "country_iso_code"
+              "valid_from"
+              "valid_to"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/calendar"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "PublicHolidays"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

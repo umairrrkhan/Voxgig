@@ -1,0 +1,33 @@
+{
+  "files": [
+    "SUMMARY.md"
+  ],
+  "config": ".sdk/doc/qa/vale.ini",
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Additional localized comments",
+      "Child groups",
+      "Child subdivisions",
+      "End date of the holiday",
+      "Group code",
+      "ISO 3166-1 country code",
+      "ISO-639-1 language code",
+      "List of group references",
+      "Localized categories of the group",
+      "Localized categories of the subdivision",
+      "Localized comments of the group",
+      "Localized comments of the subdivision",
+      "Localized country names",
+      "Localized language names",
+      "Localized names of the group",
+      "Localized names of the holiday",
+      "OK",
+      "Official ISO-639-1 language codes",
+      "Open Data API for public and school holidays",
+      "Representation of a country reference",
+      "Subdivision code",
+      "Unique holiday id"
+    ]
+  }
+}

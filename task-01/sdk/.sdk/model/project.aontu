@@ -1,0 +1,3 @@
+
+# Preserve the SDK README required by generated quickstart tests.
+main: kit: phase: top: active: true

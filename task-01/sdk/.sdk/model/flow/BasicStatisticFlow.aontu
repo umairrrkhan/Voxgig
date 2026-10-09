@@ -1,0 +1,22 @@
+# BasicStatisticFlow
+
+main: kit: flow: BasicStatisticFlow:
+{
+  entity: "statistic",
+  kind: "basic",
+  name: "BasicStatisticFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "statistic_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicStatisticFlow"
+}

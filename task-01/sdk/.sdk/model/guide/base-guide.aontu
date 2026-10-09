@@ -1,0 +1,70 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 9
+  metrics: count: path: 10
+  metrics: count: method: 10
+
+  entity: country: {
+    path: "/Countries": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: group: {
+    path: "/Groups": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: language: {
+    path: "/Languages": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: public_holiday: {
+    path: "/PublicHolidays": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: public_holidays_by_date: {
+    path: "/PublicHolidaysByDate": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: school_holiday: {
+    path: "/SchoolHolidays": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: school_holidays_by_date: {
+    path: "/SchoolHolidaysByDate": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: statistic: {
+    path: "/Statistics/PublicHolidays": {
+      action: "public_holiday": {}
+      op: list: method: *GET
+    }
+    path: "/Statistics/SchoolHolidays": {
+      action: "school_holiday": {}
+      op: list: method: *GET
+    }
+  }
+
+  entity: subdivision: {
+    path: "/Subdivisions": {
+      op: list: method: *GET
+    }
+  }
+
+}

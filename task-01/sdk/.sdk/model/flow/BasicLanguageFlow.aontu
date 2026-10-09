@@ -1,0 +1,22 @@
+# BasicLanguageFlow
+
+main: kit: flow: BasicLanguageFlow:
+{
+  entity: "language",
+  kind: "basic",
+  name: "BasicLanguageFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "language_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicLanguageFlow"
+}

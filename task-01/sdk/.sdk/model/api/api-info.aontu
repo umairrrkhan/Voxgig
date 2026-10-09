@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        name: "The OpenHolidays API Project"
+        url: "https://www.openholidaysapi.org"
+      }
+      description: "Open Data API for public and school holidays"
+      license: {
+        name: "Open Database License"
+        url: "https://github.com/openpotato/openholidaysapi.data/blob/main/LICENSE"
+      }
+      servers: [
+        {
+          url: "https://openholidaysapi.org"
+        }
+      ]
+      summary: "Open Data API for public and school holidays"
+      title: "OpenHolidays API v1"
+      version: "v1"
+      website: "https://openholidaysapi.org"
+    }
+  }
+}
+

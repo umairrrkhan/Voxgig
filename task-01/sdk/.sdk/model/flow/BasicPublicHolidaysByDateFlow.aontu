@@ -1,0 +1,22 @@
+# BasicPublicHolidaysByDateFlow
+
+main: kit: flow: BasicPublicHolidaysByDateFlow:
+{
+  entity: "public_holidays_by_date",
+  kind: "basic",
+  name: "BasicPublicHolidaysByDateFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "public_holidays_by_date_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPublicHolidaysByDateFlow"
+}

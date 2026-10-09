@@ -1,0 +1,22 @@
+# BasicSubdivisionFlow
+
+main: kit: flow: BasicSubdivisionFlow:
+{
+  entity: "subdivision",
+  kind: "basic",
+  name: "BasicSubdivisionFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "subdivision_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSubdivisionFlow"
+}

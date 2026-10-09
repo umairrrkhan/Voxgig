@@ -1,0 +1,22 @@
+# BasicGroupFlow
+
+main: kit: flow: BasicGroupFlow:
+{
+  entity: "group",
+  kind: "basic",
+  name: "BasicGroupFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "group_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGroupFlow"
+}

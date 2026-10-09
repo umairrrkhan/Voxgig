@@ -1,0 +1,22 @@
+# BasicSchoolHolidaysByDateFlow
+
+main: kit: flow: BasicSchoolHolidaysByDateFlow:
+{
+  entity: "school_holidays_by_date",
+  kind: "basic",
+  name: "BasicSchoolHolidaysByDateFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "school_holidays_by_date_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSchoolHolidaysByDateFlow"
+}

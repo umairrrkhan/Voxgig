@@ -1,0 +1,169 @@
+# Entity: school_holidays_by_date
+
+main: kit: entity: school_holidays_by_date: {
+
+  alias: field: {}
+
+  fields: {
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Additional localized comments"
+      t: "`$ARRAY`"
+    }
+    country: {
+      h: "Country"
+      n: "country"
+      r: true
+      ro: true
+      sh: "Representation of a country reference"
+      t: "`$OBJECT`"
+    }
+    groups: {
+      h: "Groups"
+      n: "groups"
+      r: false
+      sh: "List of group references"
+      t: "`$ARRAY`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique holiday id"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Localized names of the holiday"
+      t: "`$ARRAY`"
+    }
+    nationwide: {
+      h: "Nationwide"
+      n: "nationwide"
+      r: true
+      sh: "Is the holiday nationwide?"
+      t: "`$BOOLEAN`"
+    }
+    regionalScope: {
+      h: "Regional Scope"
+      n: "regionalScope"
+      r: false
+      ro: true
+      sh: "Regional scope of a holdiay"
+      t: "`$STRING`"
+    }
+    subdivisions: {
+      h: "Subdivisions"
+      n: "subdivisions"
+      r: false
+      sh: "List of subdivision references"
+      t: "`$ARRAY`"
+    }
+    tags: {
+      h: "Tags"
+      n: "tags"
+      r: false
+      sh: "Additional holday tags"
+      t: "`$ARRAY`"
+    }
+    temporalScope: {
+      h: "Temporal Scope"
+      n: "temporalScope"
+      r: false
+      ro: true
+      sh: "Temporal scope of a holdiay"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      ro: true
+      sh: "Type of holiday"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "school_holidays_by_date"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /SchoolHolidaysByDate"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "2023-12-25"
+                k: "query"
+                n: "date"
+                or: "date"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE"
+                k: "query"
+                n: "language_iso_code"
+                or: "languageIsoCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/SchoolHolidaysByDate"
+          q: {
+            exist: [
+              "date"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "SchoolHolidaysByDate"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

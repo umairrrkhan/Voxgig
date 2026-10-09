@@ -1,0 +1,22 @@
+# BasicSchoolHolidayFlow
+
+main: kit: flow: BasicSchoolHolidayFlow:
+{
+  entity: "school_holiday",
+  kind: "basic",
+  name: "BasicSchoolHolidayFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "school_holiday_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSchoolHolidayFlow"
+}

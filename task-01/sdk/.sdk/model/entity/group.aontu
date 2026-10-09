@@ -1,0 +1,138 @@
+# Entity: group
+
+main: kit: entity: group: {
+
+  alias: field: {}
+
+  fields: {
+    category: {
+      h: "Category"
+      n: "category"
+      r: true
+      sh: "Localized categories of the group"
+      t: "`$ARRAY`"
+    }
+    children: {
+      h: "Children"
+      n: "children"
+      r: false
+      sh: "Child groups"
+      t: "`$ARRAY`"
+    }
+    code: {
+      h: "Code"
+      n: "code"
+      r: true
+      sh: "Group code"
+      t: "`$STRING`"
+    }
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Localized comments of the group"
+      t: "`$ARRAY`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Localized names of the group"
+      t: "`$ARRAY`"
+    }
+    shortName: {
+      h: "Short Name"
+      n: "shortName"
+      r: true
+      sh: "Short name for display"
+      t: "`$STRING`"
+    }
+    subdivisions: {
+      h: "Subdivisions"
+      n: "subdivisions"
+      r: false
+      sh: "List of subdivision references"
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "group"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /Groups"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "country_iso_code"
+                or: "countryIsoCode"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "de"
+                k: "query"
+                n: "language_iso_code"
+                or: "languageIsoCode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "subdivision_code"
+                or: "subdivisionCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Groups"
+          q: {
+            exist: [
+              "country_iso_code"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "Groups"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

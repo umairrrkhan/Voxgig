@@ -1,0 +1,150 @@
+# Entity: statistic
+
+main: kit: entity: statistic: {
+
+  alias: field: {}
+
+  name: "statistic"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /Statistics/PublicHolidays"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "country_iso_code"
+                or: "countryIsoCode"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE-BE"
+                k: "query"
+                n: "subdivision_code"
+                or: "subdivisionCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Statistics/PublicHolidays"
+          q: {
+            "$action": "public_holiday"
+            exist: [
+              "country_iso_code"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "Statistics"
+            }
+            {
+              lit: "PublicHolidays"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /Statistics/SchoolHolidays"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "country_iso_code"
+                or: "countryIsoCode"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "group_code"
+                or: "groupCode"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE-BE"
+                k: "query"
+                n: "subdivision_code"
+                or: "subdivisionCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Statistics/SchoolHolidays"
+          q: {
+            "$action": "school_holiday"
+            exist: [
+              "country_iso_code"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "Statistics"
+            }
+            {
+              lit: "SchoolHolidays"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+
+}

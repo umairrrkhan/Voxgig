@@ -1,0 +1,145 @@
+# Entity: subdivision
+
+main: kit: entity: subdivision: {
+
+  alias: field: {}
+
+  fields: {
+    category: {
+      h: "Category"
+      n: "category"
+      r: true
+      sh: "Localized categories of the subdivision"
+      t: "`$ARRAY`"
+    }
+    children: {
+      h: "Children"
+      n: "children"
+      r: false
+      sh: "Child subdivisions"
+      t: "`$ARRAY`"
+    }
+    code: {
+      h: "Code"
+      n: "code"
+      r: true
+      sh: "Subdivision code"
+      t: "`$STRING`"
+    }
+    comment: {
+      h: "Comment"
+      n: "comment"
+      r: false
+      sh: "Localized comments of the subdivision"
+      t: "`$ARRAY`"
+    }
+    groups: {
+      h: "Groups"
+      n: "groups"
+      r: false
+      sh: "List of group references"
+      t: "`$ARRAY`"
+    }
+    isoCode: {
+      h: "Iso Code"
+      n: "isoCode"
+      r: false
+      sh: "ISO 3166-2 subdivision code (if defined)"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: true
+      sh: "Localized names of the subdivision"
+      t: "`$ARRAY`"
+    }
+    officialLanguages: {
+      h: "Official Languages"
+      n: "officialLanguages"
+      r: true
+      sh: "Official languages as ISO-639-1 codes"
+      t: "`$ARRAY`"
+    }
+    shortName: {
+      h: "Short Name"
+      n: "shortName"
+      r: true
+      sh: "Short name for display"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "subdivision"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /Subdivisions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "DE"
+                k: "query"
+                n: "country_iso_code"
+                or: "countryIsoCode"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "DE"
+                k: "query"
+                n: "language_iso_code"
+                or: "languageIsoCode"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/Subdivisions"
+          q: {
+            exist: [
+              "country_iso_code"
+            ]
+          }
+          rs: {
+            alternatives: [
+              {
+                kind: "json"
+                media: "text/json"
+              }
+              {
+                kind: "raw"
+                media: "text/csv"
+              }
+              {
+                kind: "raw"
+                media: "text/plain"
+              }
+            ]
+            kind: "json"
+            media: "application/json"
+          }
+          s: [
+            {
+              lit: "Subdivisions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

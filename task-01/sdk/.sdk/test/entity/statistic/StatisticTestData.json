@@ -1,0 +1,26 @@
+{
+  "existing": {
+    "statistic": {
+      "STATISTIC00": {},
+      "STATISTIC01": {},
+      "STATISTIC02": {}
+    }
+  },
+  "new": {
+    "statistic": {
+      "statistic_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /Statistics/PublicHolidays": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /Statistics/SchoolHolidays": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

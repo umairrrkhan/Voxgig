@@ -1,0 +1,72 @@
+{
+  "existing": {
+    "public_holiday": {
+      "PUBLIC_HOLIDAY00": {
+        "comment": [],
+        "endDate": "s79",
+        "groups": [],
+        "id": "PUBLIC_HOLIDAY00",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s7e",
+        "startDate": "s7f",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s82",
+        "type": "s83"
+      },
+      "PUBLIC_HOLIDAY01": {
+        "comment": [],
+        "endDate": "sf1",
+        "groups": [],
+        "id": "PUBLIC_HOLIDAY01",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "sf6",
+        "startDate": "sf7",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "sfa",
+        "type": "sfb"
+      },
+      "PUBLIC_HOLIDAY02": {
+        "comment": [],
+        "endDate": "s169",
+        "groups": [],
+        "id": "PUBLIC_HOLIDAY02",
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s16e",
+        "startDate": "s16f",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s172",
+        "type": "s173"
+      }
+    }
+  },
+  "new": {
+    "public_holiday": {
+      "public_holiday_ref01": {
+        "comment": [],
+        "endDate": "s1e1",
+        "groups": [],
+        "name": [],
+        "nationwide": false,
+        "regionalScope": "s1e6",
+        "startDate": "s1e7",
+        "subdivisions": [],
+        "tags": [],
+        "temporalScope": "s1ea",
+        "type": "s1eb"
+      }
+    }
+  },
+  "requests": {
+    "GET /PublicHolidays": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

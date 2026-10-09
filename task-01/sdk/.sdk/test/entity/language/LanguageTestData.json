@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "language": {
+      "LANGUAGE00": {
+        "isoCode": "s14",
+        "name": []
+      },
+      "LANGUAGE01": {
+        "isoCode": "s28",
+        "name": []
+      },
+      "LANGUAGE02": {
+        "isoCode": "s3c",
+        "name": []
+      }
+    }
+  },
+  "new": {
+    "language": {
+      "language_ref01": {
+        "isoCode": "s50",
+        "name": []
+      }
+    }
+  },
+  "requests": {
+    "GET /Languages": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
