@@ -3,11 +3,11 @@
 
 guide: entity: statistic: path: {
   '/Statistics/PublicHolidays': op: {
-    list: active: false
+    list: { method: 'GET', active: false }
     load: { method: 'GET', active: true }
   }
   '/Statistics/SchoolHolidays': op: {
-    list: active: false
+    list: { method: 'GET', active: false }
     load: { method: 'GET', active: true }
   }
 }
