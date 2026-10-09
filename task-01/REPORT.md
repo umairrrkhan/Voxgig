@@ -1,43 +1,43 @@
 # Developer-experience report
 
 **Author:** Umair Khan  
-**Task:** First mini task, Voxgig SDK assessment  
 **Date:** 9 October 2026  
-**API:** OpenHolidays API  
-**License:** MIT for authored SDK work
+**Task:** First mini task; AI-assisted  
+**Result:** MIT-licensed TypeScript SDK generated with Voxgig and verified against the live OpenHolidays API.
 
-## Scope and time box
+## API and approach
 
-AI assisted with research, setup, scripts, and documentation. No claim is made about the author's personal hands-on time: the assessment asks for a maximum of 30 minutes of human work, which the author should record separately. This submission covers task one only. It does not include an invoice for either task.
+I selected [OpenHolidays](https://www.openholidaysapi.org/en/), a public, read-only API with an official OpenAPI definition and no key requirement. On the assessment date, GitHub catalogue searches for `openholidays` and `"openholidaysapi.org"` returned no repositories. The catalogue's Public Holiday SDK uses Nager.Date, a different API. The client's free-trial SaaS suggestion was optional; this choice makes tests easy to reproduce.
 
-I selected a public, read-only API with an official OpenAPI definition and no API key requirement. Catalogue searches for the provider name and host returned no SDK. The similarly named Public Holiday catalogue SDK targets Nager.Date, not OpenHolidays.
+The project uses `@voxgig/create-sdkgen@0.30.7`, the TypeScript target, and the offline test feature. It includes the generator, model, dependency lockfiles, original API-definition snapshot, normalized definition, generated SDK, and live smoke tests. Authorship, publisher, package identity, and repository URLs are declared in the project model, without hand-editing generated source.
 
-## Observations established during setup
+The work was AI-assisted. Human hands-on time was not measured by the assistant and should not be inferred from CI timestamps. The author's review should stay within the client's 30-minute human-work allowance.
 
-The Voxgig website explains a useful pipeline: OpenAPI becomes a semantic model, which generates the SDK and its offline tests. Its agent guide gives concrete scaffold, generate, and verify commands. The GitHub guide specifies Node 24+ and current `.aontu` model files, while the website runbook still shows `.aon` in places. Following the versioned guide prevents that mismatch.
+## Observations
 
-The upstream definition omits a top-level server URL. I preserved the original snapshot and added the documented API base URL in a normalized copy. The project overlay retains the generated SDK root README because the generated quickstart test requires it. These choices are made outside generated SDK source.
+1. **Clear pipeline.** The model/SDK split and regeneration commands made the process understandable. Generated documentation examples have their own tests, and `doctor` provides a useful drift check.
+2. **Documentation mismatch.** The website agent runbook still uses `.aon` in places; the versioned build guide and current output use `.aontu`. Keeping the quickstart aligned would reduce confusion.
+3. **Missing server URL.** The official definition omits `servers`. I retained the original and added the documented base URL to a separate normalized copy.
+4. **Top-phase interaction.** Initially disabling root-file generation caused a generated quickstart test to fail with `ENOENT` for the SDK root README. Restoring that phase resolved it. The documented option could be paired with a test guard.
+5. **Project identity.** Default output used Voxgig's author and catalogue repository. Model declarations correctly changed these to Umair Khan and this repository; package authorship now survives regeneration.
+6. **Mapping limits.** Nested response fields such as localized names are typed `any[]`. The generator also warns that `BasicStatisticFlow` is unreachable without an action selector. Statistics workflows need additional attention before broader claims of coverage.
 
-The coding environment reported ready but its proxy refused connections, including to npm. That is an environment problem, not evidence of a generator bug. I moved generation and verification to GitHub Actions so the actual generator, compiler, test suite, doctor, and live SDK transport can run with reviewable logs.
+The local cloud environment's proxy refused connections to npm. This was an environment issue, not a generator defect. Generation and verification ran successfully in GitHub Actions. One intermediate smoke-script failure came from two aliases for the same exported SDK class; deduplicating them fixed the test harness.
 
-## Verification and remaining limits
+## Verification
 
-The first Actions run generated and compiled the SDK, then reported 269 passing tests, 16 skipped tests, and one failed quickstart test: disabling the top generation phase removed the SDK root README that the test unconditionally reads. Restoring that phase fixes the setup mismatch; final verification remains pending. A successful run writes `evidence/verification.json`, links its Actions log, and commits generated source using `umair64066@gmail.com`. It also records six live response checks in `evidence/live.json`. Those files, rather than this draft's wording, establish final execution status.
+[Successful Actions run](https://github.com/umairrrkhan/Voxgig/actions/runs/37924189542):
 
-Generated offline tests check the SDK and its examples. The live smoke test checks the generated direct-call transport against six real endpoints, including query parameters and expected response facts. Entity mapping beyond the generated tests, every date/filter combination, non-JSON output, and production resilience settings are outside this mini-task's scope.
+- TypeScript compilation passed.
+- Generated suite: **270 passed, 0 failed, 16 skipped**. Skips concern optional features not selected for this SDK, including validation, timeout, retry, and network simulation.
+- `doctor`: scaffold matches, no drift.
+- **12 live checks passed:** six direct SDK requests and six corresponding entity operations, with semantic assertions and matching counts.
+- Endpoints: countries, languages, subdivisions, groups, public holidays, and school holidays.
 
-If generation or doctor fails, preserve the workflow failure and report the exact output; do not claim the SDK passed and do not silently patch generated output.
+[Verification metadata](evidence/verification.json) and [live results](evidence/live.json) preserve the run link and counts. The generated-code commit uses `umair64066@gmail.com`.
 
-## Feedback for Voxgig
+Statistics, date-specific endpoints, non-JSON output, every filter combination, and optional resilience features were not live-tested. No npm package was published. The SDK/project is MIT-licensed; upstream data and definition retain their own ODbL terms.
 
-Keep the website runbook's model extensions aligned with the current release. Make missing server URLs and their override mechanism prominent in the quickstart. The separation between model edits and generated code is helpful, and a drift command provides a clear review gate.
+## Sources
 
-The generator warns that BasicStatisticFlow is unreachable because its inferred call does not select an action. That mapping and the skipped tests need review before claiming full endpoint coverage. A generated quickstart test could gracefully handle the documented top-phase-off configuration.
-
-## References
-
-- [Voxgig SDK generator](https://voxgig.com/sdk)
-- [Versioned build guide](https://github.com/voxgig/create-sdkgen/blob/main/AGENTS.md)
-- [Voxgig catalogue](https://github.com/orgs/voxgig-sdk/repositories)
-- [OpenHolidays documentation](https://www.openholidaysapi.org/en/)
-- [Official API definition](https://openholidaysapi.org/swagger/v1/swagger.json)
+[Voxgig generator](https://voxgig.com/sdk), [versioned guide](https://github.com/voxgig/create-sdkgen/blob/main/AGENTS.md), [catalogue](https://github.com/orgs/voxgig-sdk/repositories), [API definition](https://openholidaysapi.org/swagger/v1/swagger.json).

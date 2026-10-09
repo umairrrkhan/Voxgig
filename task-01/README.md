@@ -6,8 +6,8 @@ An unofficial OpenHolidays API TypeScript SDK generated with [Voxgig SDK Generat
 
 - [Developer-experience report](REPORT.md)
 - [Generation and verification workflow](../.github/workflows/task-01.yml)
-- Generated SDK: `sdk/ts/` (created and committed by the workflow after all checks pass).
-- Reproducible generator/model: `sdk/.sdk/`.
+- [Generated SDK](sdk/ts/): created and committed by the workflow after all checks pass.
+- [Reproducible generator/model](sdk/.sdk/).
 - Machine-readable results: `evidence/verification.json` and `evidence/live.json`.
 
 **Status:** Generation, TypeScript build, generated offline tests, doctor, and six live endpoint checks passed. See [verification evidence](evidence/verification.json) and its linked Actions log.
@@ -63,6 +63,6 @@ The client's SaaS/free-trial suggestion was optional. This API avoids account pr
 
 ## Licensing and attribution
 
-The authored SDK project and report are MIT-licensed under Umair Khan's copyright. Preserve notices from Voxgig's generated templates. OpenHolidays data and its upstream API definition carry their own ODbL notice; see the [upstream FAQ](https://www.openholidaysapi.org/en/faq/) and the unmodified definition's license field. This repository does not relicense holiday data under MIT. Live evidence records counts, not a copied holiday dataset.
+The authored SDK project and report are MIT-licensed under Umair Khan's copyright. Preserve [Voxgig's third-party notices](THIRD_PARTY_NOTICES.md) with distributions of generated code. OpenHolidays data and its upstream API definition carry their own ODbL notice; see the [upstream FAQ](https://www.openholidaysapi.org/en/faq/) and the unmodified definition's license field. This repository does not relicense holiday data under MIT. Live evidence records counts, not a copied holiday dataset.
 
 No npm package has been published. Clone and build the source to use it.
