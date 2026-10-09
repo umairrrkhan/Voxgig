@@ -10,9 +10,9 @@ const result = {
   workflow: 'https://github.com/' + process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID,
   sourceCommit: process.env.GITHUB_SHA,
   generator: '@voxgig/create-sdkgen@0.30.7',
-  toolchain: pkg.dependencies,
+  toolchain: pkg.devDependencies,
   upstreamSpecSha256: createHash('sha256').update(readFileSync(new URL('openapi.upstream.json', root))).digest('hex'),
-  checks: ['Voxgig generation', 'TypeScript compilation', 'generated offline tests', 'generator doctor', 'six live SDK direct calls'],
-  liveChecks: live.checks.length
+  checks: ['Voxgig generation', 'TypeScript compilation', 'generated offline tests', 'generator doctor', 'six live SDK direct calls and six entity operations'],
+  liveChecks: live.checks.length * 2
 };
 writeFileSync(new URL('evidence/verification.json', root), JSON.stringify(result, null, 2) + '\n');

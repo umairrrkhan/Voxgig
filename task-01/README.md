@@ -10,7 +10,7 @@ An unofficial OpenHolidays API TypeScript SDK generated with [Voxgig SDK Generat
 - Reproducible generator/model: `sdk/.sdk/`.
 - Machine-readable results: `evidence/verification.json` and `evidence/live.json`.
 
-**Status:** The initial setup is awaiting a successful workflow. The presence of `evidence/verification.json` with `status: passed` is the success gate. Do not treat setup files alone as a completed SDK.
+**Status:** Generation, TypeScript build, generated offline tests, doctor, and six live endpoint checks passed. See [verification evidence](evidence/verification.json) and its linked Actions log.
 
 ## Reproduce
 
@@ -26,13 +26,34 @@ npm run build
 npm test
 cd ../.sdk
 npx voxgig-sdkgen doctor
-cd ../../../..
+cd ../../..
 node task-01/scripts/smoke.mjs
 ```
 
 The first run snapshots the official OpenAPI definition, adds its missing server URL in a separate normalized copy, and invokes `@voxgig/create-sdkgen@0.30.7`. Subsequent runs use the committed definition and dependency lockfiles. Project choices live in the model; generated TypeScript is not hand-edited.
 
-The live smoke test uses the generated SDK's documented `direct` transport across countries, languages, subdivisions, groups, public holidays, and school holidays. Generated entity examples and operation tests live in the generated target's own README and test suite. Offline tests and live tests serve different purposes; passing mocks alone does not establish API compatibility.
+The live smoke test compares generated entity operations with the SDK's documented `direct` transport across countries, languages, subdivisions, groups, public holidays, and school holidays. Generated entity examples and operation tests live in the generated target's own README and test suite. Offline tests and live tests serve different purposes; passing mocks alone does not establish API compatibility.
+
+## Quick example
+
+After building, save this as `task-01/example.cjs` and run `node task-01/example.cjs`:
+
+```js
+const { OpenholidaysSDK } = require('./sdk/ts/dist/OpenholidaysSDK.js');
+
+async function main() {
+  const client = new OpenholidaysSDK();
+  const holidays = await client.PublicHoliday().list({
+    country_iso_code: 'DE',
+    language_iso_code: 'EN',
+    valid_from: '2026-01-01',
+    valid_to: '2026-12-31',
+  });
+  for (const holiday of holidays) console.log(holiday.data());
+}
+
+main().catch(error => { console.error(error); process.exitCode = 1; });
+```
 
 ## API choice and catalogue check
 

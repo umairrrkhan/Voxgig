@@ -1,5 +1,2 @@
-import { writeFileSync } from 'node:fs';
-writeFileSync(new URL('../sdk/.sdk/model/project.aontu', import.meta.url), `
-# Preserve the SDK README required by generated quickstart tests.
-main: kit: phase: top: active: true
-`);
+import { copyFileSync } from 'node:fs';
+copyFileSync(new URL('../project.aontu', import.meta.url), new URL('../sdk/.sdk/model/project.aontu', import.meta.url));

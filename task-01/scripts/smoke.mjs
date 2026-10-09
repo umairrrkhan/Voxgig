@@ -17,12 +17,22 @@ const checks = [
   ['/SchoolHolidays', { countryIsoCode: 'DE', validFrom: '2026-01-01', validTo: '2026-12-31' }, rows => rows.length > 0],
 ];
 const evidence = [];
+const entityNames = ['Country', 'Language', 'Subdivision', 'Group', 'PublicHoliday', 'SchoolHoliday'];
 for (const [path, query, validate] of checks) {
   const result = await client.direct({ path, method: 'GET', query, headers: { accept: 'application/json' } });
   if (result instanceof Error) throw result;
+  assert.equal(result.ok, true, path + ' request must succeed');
+  assert.equal(result.status, 200, path + ' must return HTTP 200');
   assert.ok(Array.isArray(result.data), path + ' must return an array');
   assert.ok(validate(result.data), path + ' response failed semantic validation');
-  evidence.push({ path, query, count: result.data.length, passed: true });
+  const entityName = entityNames[evidence.length];
+  const match = Object.fromEntries(Object.entries(query).map(([key, value]) => [key.replace(/[A-Z]/g, letter => '_' + letter.toLowerCase()), value]));
+  const entities = await client[entityName]().list(match);
+  assert.ok(Array.isArray(entities), entityName + ' list must return an array');
+  const rows = entities.map(entity => entity.data());
+  assert.ok(validate(rows), entityName + ' entity response failed semantic validation');
+  assert.equal(rows.length, result.data.length, entityName + ' must agree with the direct call');
+  evidence.push({ path, query, entity: entityName, count: rows.length, directPassed: true, entityPassed: true, passed: true });
   console.log('PASS', path, result.data.length, 'records');
 }
 writeFileSync(new URL('../evidence/live.json', import.meta.url), JSON.stringify({ timestamp: new Date().toISOString(), sdkExport: candidates[0][0], checks: evidence }, null, 2) + '\n');
