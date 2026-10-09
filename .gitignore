@@ -1,0 +1,8 @@
+**/node_modules/
+**/dist/
+**/dist-test/
+**/.jostraca/
+**/.sdk/log/
+.env
+.env.*
+!.env.example
