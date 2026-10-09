@@ -1,0 +1,55 @@
+name: Task 01 - generate and verify
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'task-01/**'
+      - '.github/workflows/task-01.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: task-01
+  cancel-in-progress: false
+jobs:
+  sdk:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Generate SDK using Voxgig
+        run: bash task-01/scripts/generate.sh
+      - name: Build and test generated TypeScript
+        working-directory: task-01/sdk/ts
+        run: |
+          npm ci
+          npm run build
+          npm test
+      - name: Verify generator drift
+        working-directory: task-01/sdk/.sdk
+        run: npx voxgig-sdkgen doctor
+      - name: Test actual OpenHolidays API
+        run: node task-01/scripts/smoke.mjs
+      - name: Record successful verification
+        run: |
+          node task-01/scripts/record.mjs
+          git config user.name 'Umair Khan'
+          git config user.email 'umair64066@gmail.com'
+          git add task-01
+          if ! git diff --cached --quiet; then
+            git commit -m 'Generate and verify OpenHolidays SDK with Voxgig [skip ci]'
+            git push origin HEAD:main
+          fi
+      - name: Preserve build evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: task-01-sdk-evidence
+          path: |
+            task-01/sdk
+            task-01/evidence
+          include-hidden-files: true
+          if-no-files-found: ignore
