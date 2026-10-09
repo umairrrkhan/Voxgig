@@ -51,5 +51,6 @@ jobs:
           path: |
             task-01/sdk
             task-01/evidence
+            !task-01/sdk/**/node_modules/**
           include-hidden-files: true
           if-no-files-found: ignore
