@@ -12,7 +12,8 @@ const result = {
   generator: '@voxgig/create-sdkgen@0.30.7',
   toolchain: pkg.devDependencies,
   upstreamSpecSha256: createHash('sha256').update(readFileSync(new URL('openapi.upstream.json', root))).digest('hex'),
-  checks: ['Voxgig generation', 'TypeScript compilation', 'generated offline tests', 'generator doctor', 'six live SDK direct calls and six entity operations'],
-  liveChecks: live.checks.length * 2
+  checks: ['Voxgig generation', 'TypeScript compilation', 'generated offline tests', 'generator doctor with one documented customization and no unexpected drift', 'ten live SDK direct calls and ten entity operations', 'two invalid-input error checks', 'fresh-checkout package installation'],
+  liveChecks: live.checks.length * 2 + live.negativeChecks
 };
 writeFileSync(new URL('evidence/verification.json', root), JSON.stringify(result, null, 2) + '\n');
+

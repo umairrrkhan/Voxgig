@@ -28,11 +28,12 @@ jobs:
           npm ci
           npm run build
           npm test
-      - name: Verify generator drift
-        working-directory: task-01/sdk/.sdk
-        run: npx voxgig-sdkgen doctor
+      - name: Verify generator customizations and drift
+        run: node task-01/scripts/doctor.mjs
       - name: Test actual OpenHolidays API
         run: node task-01/scripts/smoke.mjs
+      - name: Verify package from a fresh checkout
+        run: bash task-01/scripts/install-check.sh
       - name: Record successful verification
         run: |
           node task-01/scripts/record.mjs
@@ -54,3 +55,4 @@ jobs:
             !task-01/sdk/**/node_modules/**
           include-hidden-files: true
           if-no-files-found: ignore
+
