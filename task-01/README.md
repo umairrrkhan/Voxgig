@@ -10,7 +10,7 @@ An unofficial OpenHolidays API TypeScript SDK generated with [Voxgig SDK Generat
 - [Reproducible generator/model](sdk/.sdk/).
 - Machine-readable results: `evidence/verification.json` and `evidence/live.json`.
 
-**Status:** Generation, TypeScript build, generated offline tests, doctor, and six live endpoint checks passed. See [verification evidence](evidence/verification.json) and its linked Actions log.
+**Status:** Generation, TypeScript build, generated offline tests, the customization/drift gate, all ten live endpoint checks, invalid-input handling, and fresh-checkout installation passed. See [verification evidence](evidence/verification.json) and its linked Actions log.
 
 ## Reproduce
 
@@ -25,14 +25,15 @@ npm ci
 npm run build
 npm test
 cd ../.sdk
-npx voxgig-sdkgen doctor
 cd ../../..
+node task-01/scripts/doctor.mjs
 node task-01/scripts/smoke.mjs
+bash task-01/scripts/install-check.sh
 ```
 
-The first run snapshots the official OpenAPI definition, adds its missing server URL in a separate normalized copy, and invokes `@voxgig/create-sdkgen@0.30.7`. Subsequent runs use the committed definition and dependency lockfiles. Project choices live in the model; generated TypeScript is not hand-edited.
+The first run snapshots the official OpenAPI definition, adds its missing server URL and corrects the statistics object response schemas in a separate normalized copy, and invokes `@voxgig/create-sdkgen@0.30.7`. Subsequent runs use the committed definition and dependency lockfiles. Project choices live in the model; generated TypeScript is not hand-edited.
 
-The live smoke test compares generated entity operations with the SDK's documented `direct` transport across countries, languages, subdivisions, groups, public holidays, and school holidays. Generated entity examples and operation tests live in the generated target's own README and test suite. Offline tests and live tests serve different purposes; passing mocks alone does not establish API compatibility.
+The live smoke test compares generated entity operations with the SDK's documented `direct` transport across all ten routes, including date-specific holidays and statistics. Statistics return one object and are exposed as `Statistic().load({ country_iso_code: 'DE', $action: 'public_holiday' })`. It also verifies invalid-date errors. Generated entity examples and operation tests live in the generated target's own README and test suite. Offline tests and live tests serve different purposes; passing mocks alone does not establish API compatibility.
 
 ## Quick example
 
@@ -55,6 +56,10 @@ async function main() {
 main().catch(error => { console.error(error); process.exitCode = 1; });
 ```
 
+## Documented generator customization
+
+The vendored `ReadmeInstall_ts.ts` component is deliberately customized to produce correct installation commands for this nested project. Raw `voxgig-sdkgen doctor` reports that one fork and exits 1. `node task-01/scripts/doctor.mjs` checks its SHA-256 against [the allowlist](doctor-customizations.json), requires exactly that finding, and rejects any other drift. This does not claim an untouched scaffold. Resyncing the target can overwrite the component; restore the documented customization before regeneration.
+
 ## API choice and catalogue check
 
 [OpenHolidays](https://www.openholidaysapi.org/en/) provides public and school holiday data. On 9 October 2026, GitHub repository searches scoped to `voxgig-sdk` for `openholidays` and `"openholidaysapi.org"` returned no repositories. A broader holiday search found Nager.Date's `public-holiday-sdk`, which is a different API.
@@ -66,3 +71,4 @@ The client's SaaS/free-trial suggestion was optional. This API avoids account pr
 The authored SDK project and report are MIT-licensed under Umair Khan's copyright. Preserve [Voxgig's third-party notices](THIRD_PARTY_NOTICES.md) with distributions of generated code. OpenHolidays data and its upstream API definition carry their own ODbL notice; see the [upstream FAQ](https://www.openholidaysapi.org/en/faq/) and the unmodified definition's license field. This repository does not relicense holiday data under MIT. Live evidence records counts, not a copied holiday dataset.
 
 No npm package has been published. Clone and build the source to use it.
+
