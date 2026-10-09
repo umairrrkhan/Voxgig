@@ -13,6 +13,8 @@ if [[ ! -f sdk/.sdk/package.json ]]; then
 else
   (cd sdk/.sdk && npm ci)
 fi
+cp openapi.json sdk/.sdk/def/openapi.json
 node scripts/configure.mjs
 (cd sdk/.sdk && npm run generate)
 (cd sdk/ts && npm install --package-lock-only)
+
