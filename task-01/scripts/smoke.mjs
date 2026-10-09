@@ -5,7 +5,7 @@ import { resolve } from 'node:path';
 
 const pkg = JSON.parse(readFileSync(new URL('../sdk/ts/package.json', import.meta.url)));
 const sdkModule = await import(pathToFileURL(resolve('task-01/sdk/ts', pkg.main)));
-const candidates = Object.entries(sdkModule).filter(([name, value]) => /SDK$/.test(name) && typeof value === 'function');
+const candidates = [...new Map(Object.entries(sdkModule).filter(([name, value]) => /SDK$/.test(name) && typeof value === 'function').map(entry => [entry[1], entry])).values()];
 assert.equal(candidates.length, 1, 'Expected one generated SDK class export');
 const client = new candidates[0][1]();
 const checks = [
