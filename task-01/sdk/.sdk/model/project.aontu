@@ -1,3 +1,17 @@
-
-# Preserve the SDK README required by generated quickstart tests.
-main: kit: phase: top: active: true
+# Authorship, repository, and package identity survive regeneration.
+main: kit: {
+  phase: top: active: true
+  repo: { host: 'github.com', path: 'umairrrkhan/Voxgig' }
+  author: { name: 'Umair Khan', url: 'https://github.com/umairrrkhan' }
+  publisher: {
+    name: 'Umair Khan'
+    url: 'https://github.com/umairrrkhan'
+    security: 'umair64066@gmail.com'
+  }
+  contributor: voxgig: { name: 'Voxgig', url: 'https://voxgig.com/sdk' }
+  target: ts: publish: registry: {
+    package: '@umairrrkhan/openholidays-sdk'
+    active: false
+    state: 'pending'
+  }
+}

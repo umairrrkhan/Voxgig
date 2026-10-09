@@ -1,17 +1,23 @@
 {
-  "timestamp": "2026-10-09T11:28:45.333Z",
+  "timestamp": "2026-10-09T11:31:23.838Z",
   "sdkExport": "SDK",
   "checks": [
     {
       "path": "/Countries",
       "query": {},
+      "entity": "Country",
       "count": 36,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     },
     {
       "path": "/Languages",
       "query": {},
+      "entity": "Language",
       "count": 30,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     },
     {
@@ -19,7 +25,10 @@
       "query": {
         "countryIsoCode": "DE"
       },
+      "entity": "Subdivision",
       "count": 16,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     },
     {
@@ -27,7 +36,10 @@
       "query": {
         "countryIsoCode": "BE"
       },
+      "entity": "Group",
       "count": 3,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     },
     {
@@ -38,7 +50,10 @@
         "validTo": "2026-12-31",
         "languageIsoCode": "EN"
       },
+      "entity": "PublicHoliday",
       "count": 20,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     },
     {
@@ -48,7 +63,10 @@
         "validFrom": "2026-01-01",
         "validTo": "2026-12-31"
       },
+      "entity": "SchoolHoliday",
       "count": 121,
+      "directPassed": true,
+      "entityPassed": true,
       "passed": true
     }
   ]

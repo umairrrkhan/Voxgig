@@ -1,13 +1,22 @@
 {
+  "NAME": "OPENHOLIDAYS",
+  "Name": "Openholidays",
   "def": "openapi.json",
   "main": {
+    "api": {
+      "entity": {},
+      "guide": {}
+    },
+    "custom": {
+      "plurals": {}
+    },
     "def": {
       "desc": ""
     },
     "kit": {
       "author": {
-        "name": "",
-        "url": ""
+        "name": "Umair Khan",
+        "url": "https://github.com/umairrrkhan"
       },
       "config": {
         "docs_order": [
@@ -23,7 +32,12 @@
         },
         "repr": "auto"
       },
-      "contributor": {},
+      "contributor": {
+        "voxgig": {
+          "name": "Voxgig",
+          "url": "https://voxgig.com/sdk"
+        }
+      },
       "doc": {
         "active": true,
         "assets": {
@@ -1993,13 +2007,13 @@
         }
       },
       "publisher": {
-        "name": "",
-        "security": "",
-        "url": ""
+        "name": "Umair Khan",
+        "security": "umair64066@gmail.com",
+        "url": "https://github.com/umairrrkhan"
       },
       "repo": {
         "host": "github.com",
-        "path": ""
+        "path": "umairrrkhan/Voxgig"
       },
       "target": {
         "ts": {
@@ -2054,7 +2068,7 @@
             "registry": {
               "active": false,
               "name": "npm",
-              "package": "",
+              "package": "@umairrrkhan/openholidays-sdk",
               "state": "pending",
               "url": "https://registry.npmjs.org",
               "vault": {
@@ -2106,5 +2120,8 @@
     }
   },
   "name": "openholidays",
+  "name-": "openholidays",
+  "name_": "openholidays",
+  "name__orig": "openholidays",
   "origin": "voxgig-sdk"
 }

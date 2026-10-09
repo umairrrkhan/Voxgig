@@ -12,12 +12,12 @@ predictable and low-friction for both humans and AI agents.
 
 ## Install
 This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/openholidays-sdk/tags)), or from a
+release tag (`ts/vX.Y.Z`, see [Tags](https://github.com/umairrrkhan/Voxgig/tags)), or from a
 clone, which carries the compiled `dist/`:
 
 ```bash
-git clone https://github.com/voxgig-sdk/openholidays-sdk
-npm install ./openholidays-sdk/ts
+git clone https://github.com/umairrrkhan/Voxgig
+npm install ./Voxgig/ts
 ```
 
 
@@ -29,7 +29,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenholidaysSDK } from '@voxgig-sdk/openholidays-sdk'
+import { OpenholidaysSDK } from '@umairrrkhan/openholidays-sdk'
 
 const client = new OpenholidaysSDK()
 ```
@@ -783,7 +783,7 @@ openholidays/
 Import the SDK from the package root:
 
 ```ts
-import { OpenholidaysSDK } from '@voxgig-sdk/openholidays-sdk'
+import { OpenholidaysSDK } from '@umairrrkhan/openholidays-sdk'
 ```
 
 ### Entity state

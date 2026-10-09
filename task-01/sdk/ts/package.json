@@ -1,22 +1,21 @@
 {
-  "name": "@voxgig-sdk/openholidays-sdk",
+  "name": "@umairrrkhan/openholidays-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the OpenHolidays API v1 public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
-    "voxgig",
     "sdk",
     "generated-sdk",
     "openapi",
     "api-client",
     "openholidays"
   ],
-  "homepage": "https://github.com/voxgig-sdk/openholidays-sdk#readme",
+  "homepage": "https://github.com/umairrrkhan/Voxgig#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/voxgig-sdk/openholidays-sdk.git"
+    "url": "git+https://github.com/umairrrkhan/Voxgig.git"
   },
   "bugs": {
-    "url": "https://github.com/voxgig-sdk/openholidays-sdk/issues"
+    "url": "https://github.com/umairrrkhan/Voxgig/issues"
   },
   "main": "dist/OpenholidaysSDK.js",
   "type": "commonjs",
@@ -42,8 +41,8 @@
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
   "author": {
-    "name": "Voxgig",
-    "url": "https://voxgig.com"
+    "name": "Umair Khan",
+    "url": "https://github.com/umairrrkhan"
   },
   "license": "MIT",
   "engines": {
