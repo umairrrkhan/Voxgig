@@ -7,12 +7,18 @@ main: kit: flow: BasicStatisticFlow:
   name: "BasicStatisticFlow",
   step: [
     {
-      o: "list",
+      i: {
+        ref: "statistic_ref01",
+        srcdatavar: "statistic_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
       v: [
         {
-          apply: "ItemExists",
+          apply: "TextFieldMark",
           def: {
-            ref: "statistic_ref01"
+            mark: "Mark01-statistic_ref01"
           }
         }
       ]

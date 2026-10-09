@@ -1,11 +1,12 @@
 {
-  "timestamp": "2026-10-09T11:31:23.838Z",
+  "timestamp": "2026-10-09T11:56:09.458Z",
   "sdkExport": "SDK",
   "checks": [
     {
       "path": "/Countries",
       "query": {},
       "entity": "Country",
+      "operation": "list",
       "count": 36,
       "directPassed": true,
       "entityPassed": true,
@@ -15,6 +16,7 @@
       "path": "/Languages",
       "query": {},
       "entity": "Language",
+      "operation": "list",
       "count": 30,
       "directPassed": true,
       "entityPassed": true,
@@ -26,6 +28,7 @@
         "countryIsoCode": "DE"
       },
       "entity": "Subdivision",
+      "operation": "list",
       "count": 16,
       "directPassed": true,
       "entityPassed": true,
@@ -37,6 +40,7 @@
         "countryIsoCode": "BE"
       },
       "entity": "Group",
+      "operation": "list",
       "count": 3,
       "directPassed": true,
       "entityPassed": true,
@@ -51,6 +55,7 @@
         "languageIsoCode": "EN"
       },
       "entity": "PublicHoliday",
+      "operation": "list",
       "count": 20,
       "directPassed": true,
       "entityPassed": true,
@@ -64,10 +69,62 @@
         "validTo": "2026-12-31"
       },
       "entity": "SchoolHoliday",
+      "operation": "list",
       "count": 121,
       "directPassed": true,
       "entityPassed": true,
       "passed": true
+    },
+    {
+      "path": "/PublicHolidaysByDate",
+      "query": {
+        "date": "2026-01-01",
+        "languageIsoCode": "EN"
+      },
+      "entity": "PublicHolidaysByDate",
+      "operation": "list",
+      "count": 36,
+      "directPassed": true,
+      "entityPassed": true,
+      "passed": true
+    },
+    {
+      "path": "/SchoolHolidaysByDate",
+      "query": {
+        "date": "2026-01-05",
+        "languageIsoCode": "EN"
+      },
+      "entity": "SchoolHolidaysByDate",
+      "operation": "list",
+      "count": 60,
+      "directPassed": true,
+      "entityPassed": true,
+      "passed": true
+    },
+    {
+      "path": "/Statistics/PublicHolidays",
+      "query": {
+        "countryIsoCode": "DE"
+      },
+      "entity": "Statistic",
+      "operation": "load",
+      "count": 1,
+      "directPassed": true,
+      "entityPassed": true,
+      "passed": true
+    },
+    {
+      "path": "/Statistics/SchoolHolidays",
+      "query": {
+        "countryIsoCode": "DE"
+      },
+      "entity": "Statistic",
+      "operation": "load",
+      "count": 1,
+      "directPassed": true,
+      "entityPassed": true,
+      "passed": true
     }
-  ]
+  ],
+  "negativeChecks": 2
 }

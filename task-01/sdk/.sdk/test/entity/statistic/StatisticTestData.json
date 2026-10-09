@@ -1,9 +1,15 @@
 {
   "existing": {
     "statistic": {
-      "STATISTIC00": {},
-      "STATISTIC01": {},
-      "STATISTIC02": {}
+      "STATISTIC00": {
+        "id": "STATISTIC00"
+      },
+      "STATISTIC01": {
+        "id": "STATISTIC01"
+      },
+      "STATISTIC02": {
+        "id": "STATISTIC02"
+      }
     }
   },
   "new": {

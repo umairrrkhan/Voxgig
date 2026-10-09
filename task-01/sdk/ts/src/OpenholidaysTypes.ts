@@ -128,12 +128,12 @@ export interface SchoolHolidaysByDateListMatch {
 export interface Statistic {
 }
 
-export interface StatisticListMatch {
+export interface StatisticLoadMatch {
   country_iso_code: string
   subdivision_code?: string
   group_code?: string
 
-  // Selects a custom action instead of the plain list:
+  // Selects a custom action instead of the plain load:
   //   'public_holiday' | 'school_holiday'
   // The remaining keys are that action's own payload.
   $action?: string

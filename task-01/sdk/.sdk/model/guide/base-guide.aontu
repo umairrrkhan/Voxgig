@@ -53,11 +53,11 @@ guide: {
   entity: statistic: {
     path: "/Statistics/PublicHolidays": {
       action: "public_holiday": {}
-      op: list: method: *GET
+      op: load: method: *GET
     }
     path: "/Statistics/SchoolHolidays": {
       action: "school_holiday": {}
-      op: list: method: *GET
+      op: load: method: *GET
     }
   }
 

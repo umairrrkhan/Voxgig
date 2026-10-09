@@ -1,15 +1,6 @@
 {
-  "NAME": "OPENHOLIDAYS",
-  "Name": "Openholidays",
   "def": "openapi.json",
   "main": {
-    "api": {
-      "entity": {},
-      "guide": {}
-    },
-    "custom": {
-      "plurals": {}
-    },
     "def": {
       "desc": ""
     },
@@ -1296,9 +1287,9 @@
           "fields": {},
           "name": "statistic",
           "op": {
-            "list": {
+            "load": {
               "input": "data",
-              "name": "list",
+              "name": "load",
               "points": [
                 {
                   "a": true,
@@ -1885,15 +1876,19 @@
             {
               "a": true,
               "d": {},
-              "i": {},
+              "i": {
+                "ref": "statistic_ref01",
+                "srcdatavar": "statistic_ref01_data",
+                "suffix": "_dt0"
+              },
               "m": {},
-              "o": "list",
+              "o": "load",
               "s": [],
               "v": [
                 {
-                  "apply": "ItemExists",
+                  "apply": "TextFieldMark",
                   "def": {
-                    "ref": "statistic_ref01"
+                    "mark": "Mark01-statistic_ref01"
                   }
                 }
               ]
@@ -2120,8 +2115,5 @@
     }
   },
   "name": "openholidays",
-  "name-": "openholidays",
-  "name_": "openholidays",
-  "name__orig": "openholidays",
   "origin": "voxgig-sdk"
 }

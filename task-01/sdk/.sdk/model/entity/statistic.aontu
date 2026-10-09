@@ -6,8 +6,8 @@ main: kit: entity: statistic: {
 
   name: "statistic"
   op: {
-    list: {
-      name: "list"
+    load: {
+      name: "load"
       points: [
         {
           co: {

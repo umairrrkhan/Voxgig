@@ -739,26 +739,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               }
             }
@@ -827,26 +818,17 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               },
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/StatisticsResponse"
-                  }
+                  "$ref": "#/components/schemas/StatisticsResponse"
                 }
               }
             }

@@ -1,8 +1,13 @@
-# Guide
-
 @"@voxgig/apidef/model/guide.aontu"
-
 @"./base-guide.aontu"
 
-
-
+guide: entity: statistic: path: {
+  '/Statistics/PublicHolidays': op: {
+    list: { method: 'GET', active: false }
+    load: { method: 'GET', active: true }
+  }
+  '/Statistics/SchoolHolidays': op: {
+    list: { method: 'GET', active: false }
+    load: { method: 'GET', active: true }
+  }
+}

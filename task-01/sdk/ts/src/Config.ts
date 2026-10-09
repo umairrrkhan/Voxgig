@@ -1096,9 +1096,9 @@ class Config {
       "fields": [],
       "name": "statistic",
       "op": {
-        "list": {
+        "load": {
           "input": "data",
-          "name": "list",
+          "name": "load",
           "points": [
             {
               "kind": "http",

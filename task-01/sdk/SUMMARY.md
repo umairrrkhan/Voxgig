@@ -109,7 +109,7 @@ Key fields to recognise:
 
 Results: OK.
 
-SDK operations: `list`.
+SDK operations: `load`.
 
 ### Subdivision
 
@@ -138,8 +138,8 @@ Use this map to locate a capability. Consult the entity reference before supplyi
 | PublicHolidaysByDate | `list` | `GET /PublicHolidaysByDate` | See reference |
 | SchoolHoliday | `list` | `GET /SchoolHolidays` | See reference |
 | SchoolHolidaysByDate | `list` | `GET /SchoolHolidaysByDate` | See reference |
-| Statistic | `list` | `GET /Statistics/PublicHolidays` | See reference |
-| Statistic | `list` | `GET /Statistics/SchoolHolidays` | See reference |
+| Statistic | `load` | `GET /Statistics/PublicHolidays` | See reference |
+| Statistic | `load` | `GET /Statistics/SchoolHolidays` | See reference |
 | Subdivision | `list` | `GET /Subdivisions` | See reference |
 
 ## Connect to the API

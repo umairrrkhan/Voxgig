@@ -16,7 +16,7 @@ import type {
 
 import type {
   Statistic,
-  StatisticListMatch,
+  StatisticLoadMatch,
 } from '../OpenholidaysTypes'
 
 class StatisticEntity extends OpenholidaysEntityBase<Statistic> {
@@ -35,8 +35,7 @@ class StatisticEntity extends OpenholidaysEntityBase<Statistic> {
 
 
 
-
-  async list(this: any, reqmatch?: StatisticListMatch, ctrl?: Control): Promise<StatisticEntity[]> {
+  async load(this: any, reqmatch?: StatisticLoadMatch, ctrl?: Control): Promise<StatisticEntity> {
 
     const utility = this._utility
 
@@ -56,7 +55,7 @@ class StatisticEntity extends OpenholidaysEntityBase<Statistic> {
     let fres: Promise<any> | undefined = undefined
 
     let ctx: Context = makeContext({
-      opname: 'list',
+      opname: 'load',
       ctrl,
       match: this._match,
       data: this._data,
@@ -122,9 +121,15 @@ class StatisticEntity extends OpenholidaysEntityBase<Statistic> {
         if (null != ctx.result.resmatch) {
           this._match = ctx.result.resmatch
         }
+
+        if (null != ctx.result.resdata) {
+          this._data = ctx.result.resdata
+        }
       }
 
-      return done(ctx)
+      const out = done(ctx)
+
+      return (ctx.result && ctx.result.ok) ? this : out
     }
     catch (err: any) {
       // What a hook throws here must not escape the cleaning below.
@@ -144,11 +149,12 @@ class StatisticEntity extends OpenholidaysEntityBase<Statistic> {
       }
       else {
         // Off-happy-path (throw disabled): typed as any so the method's
-        // Promise<StatisticEntity[]> return stays clean under strict null checks.
+        // Promise<StatisticEntity> return stays clean under strict null checks.
         return undefined as any
       }
     }
   }
+
 
 
 

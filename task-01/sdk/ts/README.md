@@ -5,21 +5,20 @@
 The TypeScript SDK for the Openholidays API — a type-safe, entity-oriented client with full async/await support.
 
 The API is exposed as capitalised, semantic **Entities** — e.g.
-`client.Country()` — each with a small set of operations (`list`)
+`client.Country()` — each with a small set of operations (`list`, `load`)
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
 
 ## Install
-This package is not yet published to npm. Install it from the GitHub
-release tag (`ts/vX.Y.Z`, see [Tags](https://github.com/umairrrkhan/Voxgig/tags)), or from a
-clone, which carries the compiled `dist/`:
+This package is not published to npm. Clone and build the SDK before installing it locally. Requires Node.js 24 or later.
 
 ```bash
 git clone https://github.com/umairrrkhan/Voxgig
-npm install ./Voxgig/ts
+npm ci --prefix ./Voxgig/task-01/sdk/ts
+npm run build --prefix ./Voxgig/task-01/sdk/ts
+npm install ./Voxgig/task-01/sdk/ts
 ```
-
 
 ## Tutorial: your first API call
 
@@ -245,6 +244,7 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria, and return it. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria, one per record. |
 | `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
 | `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
@@ -257,6 +257,7 @@ All entities share the same interface.
 Entity operations resolve to the entity itself — there is no result
 envelope, and an entity's `data()` reads its record:
 
+- `load` resolves to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
 
@@ -420,7 +421,7 @@ API path: `/SchoolHolidaysByDate`
 | Field | Description |
 | --- | --- |
 
-Operations: list.
+Operations: load.
 
 API path: `/Statistics/PublicHolidays`
 
@@ -667,7 +668,7 @@ Create an instance: `const statistic = client.Statistic()`
 
 | Method | Description |
 | --- | --- |
-| `list(match)` | List entities matching the criteria. |
+| `load(match)` | Load a single entity by match criteria. |
 
 
 ### Subdivision

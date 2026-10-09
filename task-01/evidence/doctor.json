@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "rawDoctorExit": 1,
+  "intentionalCustomizations": [
+    "src/cmp/ts/ReadmeInstall_ts.ts"
+  ],
+  "unexpectedDrift": 0
+}

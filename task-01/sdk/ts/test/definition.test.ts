@@ -523,7 +523,7 @@ const PLAN: any[] = [
   {
     "entity": "statistic",
     "accessor": "Statistic",
-    "op": "list",
+    "op": "load",
     "method": "GET",
     "path": "/Statistics/PublicHolidays",
     "action": "public_holiday",
@@ -555,18 +555,16 @@ const PLAN: any[] = [
     ],
     "auth": null,
     "status": 200,
-    "sample": [
-      {
-        "youngestStartDate": "2026-01-01",
-        "oldestStartDate": "2026-01-01"
-      }
-    ],
+    "sample": {
+      "youngestStartDate": "2026-01-01",
+      "oldestStartDate": "2026-01-01"
+    },
     "idField": "id"
   },
   {
     "entity": "statistic",
     "accessor": "Statistic",
-    "op": "list",
+    "op": "load",
     "method": "GET",
     "path": "/Statistics/SchoolHolidays",
     "action": "school_holiday",
@@ -604,12 +602,10 @@ const PLAN: any[] = [
     ],
     "auth": null,
     "status": 200,
-    "sample": [
-      {
-        "youngestStartDate": "2026-01-01",
-        "oldestStartDate": "2026-01-01"
-      }
-    ],
+    "sample": {
+      "youngestStartDate": "2026-01-01",
+      "oldestStartDate": "2026-01-01"
+    },
     "idField": "id"
   },
   {

@@ -628,14 +628,14 @@ remaining keys are sent as that action's payload.
 
 | Action | Route | Call |
 | --- | --- | --- |
-| `public_holiday` | `/Statistics/PublicHolidays` | `client.Statistic().list({ $action: 'public_holiday', ... })` |
-| `school_holiday` | `/Statistics/SchoolHolidays` | `client.Statistic().list({ $action: 'school_holiday', ... })` |
+| `public_holiday` | `/Statistics/PublicHolidays` | `client.Statistic().load({ $action: 'public_holiday', ... })` |
+| `school_holiday` | `/Statistics/SchoolHolidays` | `client.Statistic().load({ $action: 'school_holiday', ... })` |
 
 An action returns that action's OWN response, which is not necessarily a
 Statistic record — check the API definition for its shape.
 
 ```ts
-const result = await client.Statistic().list({
+const result = await client.Statistic().load({
   $action: 'public_holiday',
   /* ...the action's own arguments */
 })
@@ -643,9 +643,9 @@ const result = await client.Statistic().list({
 
 ### Operations
 
-#### `list(match: object, ctrl?: object)`
+#### `load(match: object, ctrl?: object)`
 
-List entities matching the given criteria. Resolves to an array of entities, one per record.
+Load a single entity matching the given criteria. Resolves to the entity, whose record `data()` reads.
 
 ### Common Methods
 
