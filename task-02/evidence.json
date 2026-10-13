@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "checkedAt": "2026-10-13T17:07:36.402Z",
+  "node": "v24.21.0",
+  "aontu": "0.76.0",
+  "workflow": "https://github.com/umairrrkhan/Voxgig/actions/runs/38436091556",
+  "sourceCommit": "b935b6b0a7b3be29f704b46a2dbe4fc0b55b540c",
+  "tests": 8,
+  "articleCodeBlocks": 6
+}
