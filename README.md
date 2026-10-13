@@ -10,5 +10,5 @@ Author: Umair Khan (`umair64066@gmail.com`).
 
 Verified: compilation, 270 passing offline tests, the documented customization/drift gate, 22 live SDK checks covering all ten API routes and invalid-date handling, and fresh-checkout package installation. Sixteen optional-feature tests are skipped; the report records remaining coverage limits.
 
-Mini task two is outside this submission.
+Mini task two: [critical Aontu review](task-02/ARTICLE.md), approximately 1,000 words with code examples and [passing verification](https://github.com/umairrrkhan/Voxgig/actions/runs/38436091556).
 
