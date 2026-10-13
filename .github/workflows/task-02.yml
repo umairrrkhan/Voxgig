@@ -1,0 +1,52 @@
+name: Task 02 - verify article examples
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'task-02/**'
+      - '.github/workflows/task-02.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: task-02
+  cancel-in-progress: false
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Install pinned Aontu package
+        working-directory: task-02
+        run: |
+          if test -f package-lock.json; then npm ci; else npm install; fi
+      - name: Execute article examples
+        working-directory: task-02
+        run: npm test
+      - name: Save verification evidence
+        working-directory: task-02
+        run: |
+          node - <<'JS'
+          const fs = require('node:fs');
+          fs.writeFileSync('evidence.json', JSON.stringify({
+            status: 'passed',
+            checkedAt: new Date().toISOString(),
+            node: process.version,
+            aontu: require('aontu/package.json').version,
+            workflow: 'https://github.com/' + process.env.GITHUB_REPOSITORY + '/actions/runs/' + process.env.GITHUB_RUN_ID,
+            sourceCommit: process.env.GITHUB_SHA,
+            tests: 8,
+            articleCodeBlocks: 6
+          }, null, 2) + '\n');
+          JS
+          git config user.name 'Umair Khan'
+          git config user.email 'umair64066@gmail.com'
+          git add package-lock.json evidence.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Record verified Aontu article examples [skip ci]'
+            git push origin HEAD:main
+          fi

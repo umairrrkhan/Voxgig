@@ -1,0 +1,17 @@
+{
+  "name": "voxgig-task-02-article-examples",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible examples for the Aontu critical review",
+  "license": "MIT",
+  "author": "Umair Khan",
+  "scripts": {
+    "test": "node --test examples.test.cjs"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "dependencies": {
+    "aontu": "0.76.0"
+  }
+}
